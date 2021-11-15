@@ -1,4 +1,4 @@
-resource  "aws_vpc"   "subnets" {
+resource  "aws_vpc"   "main" {
   count      = length(var.SUBNETS)
   cidr_block       =  element(var.SUBNETS,count.index )
   tags = {
@@ -8,13 +8,6 @@ resource  "aws_vpc"   "subnets" {
 
 
 
-#resource "aws_vpc" "main" {
-#  cidr_block = var.VPC_CIDR_MAIN
-#
-#  tags = {
-#    Name = var.ENV
-#  }
-#}
 
 #resource "aws_vpc_ipv4_cidr_block_association" "addon" {
 #  count      = length(var.VPC_CIDR_ADDON)

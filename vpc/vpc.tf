@@ -1,6 +1,6 @@
-#variable "VPC_CIDR" {
+variable "VPC_CIDR" {
 #  default = ""
-#}
+}
 resource  "aws_vpc"   "subnets" {
   count      = length(var.SUBNETS)
   cidr_block       =  element(var.SUBNETS,count.index )

@@ -1,5 +1,5 @@
 variable "SUBNETS" {
-  default = ""
+
 }
 resource "aws_subnet" "subnets" {
 count             = length(var.SUBNETS)

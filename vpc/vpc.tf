@@ -1,6 +1,3 @@
-variable "VPC_CIDR" {
-#  default = ""
-}
 resource  "aws_vpc"   "subnets" {
   count      = length(var.SUBNETS)
   cidr_block       =  element(var.SUBNETS,count.index )
@@ -9,7 +6,6 @@ resource  "aws_vpc"   "subnets" {
       }
 }
 
-#variable "ENV" {}
 
 
 #resource "aws_vpc" "main" {

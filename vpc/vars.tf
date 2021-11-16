@@ -5,3 +5,4 @@ variable "VPC_CIDR_MAIN" {}
 variable "VPC_CIDR_ADDON" {}
 variable "AZS" {}
 variable "DEFAULT_VPC_ID" {}
+variable "DEFAULT_VPC_CIDR" {}

@@ -1,4 +1,4 @@
-resource "aws_route_table" "route" {
+resource "aws_route_table" "route"  {
   vpc_id = aws_vpc.main.id
 
   route = [
@@ -20,7 +20,7 @@ resource "aws_route_table" "route" {
   ]
 
   tags = {
-    Name = "example"
+    Name = "route-table"
   }
 }
 

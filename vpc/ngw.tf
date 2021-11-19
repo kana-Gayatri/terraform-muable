@@ -13,3 +13,8 @@ resource "aws_nat_gateway" "ngw" {
     Name = "${var.ENV}-ngw"
   }
 }
+
+
+output  "allocationid" {
+  value = aws_nat_gateway.ngw.allocation_id
+  }

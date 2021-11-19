@@ -14,7 +14,3 @@ resource "aws_nat_gateway" "ngw" {
   }
 }
 
-
-output  "allocationid" {
-  value = aws_nat_gateway.ngw.allocation_id
-  }

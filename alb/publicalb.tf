@@ -12,3 +12,4 @@ resource "aws_lb" "public" {
     Environment = "roboshop-public-${var.ENV}"
   }
 }
+

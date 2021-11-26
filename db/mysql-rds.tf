@@ -18,17 +18,6 @@ resource "aws_db_instance" "mysql" {
   db_subnet_group_name   = aws_db_subnet_group.subnet-group.name
 }
 
-#resource "aws_db_security_group" "mysql" {
-#  name = "mysql-${var.ENV}"
-#
-#  dynamic "ingress" {
-#    for_each = local.ALL_CIDR
-#    content {
-#      cidr = ingress.value
-#    }
-#  }
-#}
-
 resource "aws_security_group" "mysql" {
   name        = "mysql-${var.ENV}"
   description = "mysql-${var.ENV}"

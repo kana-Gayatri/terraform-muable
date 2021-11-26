@@ -20,3 +20,4 @@ data "aws_ami" "ami" {
   name_regex  = "Centos-7-DevOps-Practice"
   owners      = ["973714476881"]
 }
+

@@ -90,3 +90,4 @@ mysql -h${aws_db_instance.mysql.address} -u${local.rds_user} -p${local.rds_pass}
 EOF
   }
 }
+

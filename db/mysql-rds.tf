@@ -78,6 +78,7 @@ resource "aws_route53_record" "mysql" {
   records = [aws_db_instance.mysql.address]
 }
 
+
 resource "null_resource" "schema-apply" {
   //depends_on = [aws_route53_record.mysql]
   provisioner "local-exec" {

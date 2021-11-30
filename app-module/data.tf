@@ -19,7 +19,7 @@ data "terraform_remote_state" "alb" {
 data "aws_ami" "ami" {
   most_recent = true
   name_regex  = "base"
-  owners      = ["self"]
+  owners      = ["946075822778"]
 }
 
 data "aws_secretsmanager_secret" "secrets" {

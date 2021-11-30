@@ -6,19 +6,16 @@ data "terraform_remote_state" "vpc" {
     region = "us-east-1"
   }
 }
-
 data "aws_secretsmanager_secret" "secrets" {
   name = var.ENV
 }
-
 data "aws_secretsmanager_secret_version" "secrets-version" {
   secret_id = data.aws_secretsmanager_secret.secrets.id
 }
 
-
 data "aws_ami" "ami" {
   most_recent = true
   name_regex  = "Centos-7-DevOps-Practice"
-   owners      = ["946075822778"]
+  owners      = ["946075822778"]
 }
 

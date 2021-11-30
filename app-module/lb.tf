@@ -19,6 +19,18 @@ resource "aws_lb_target_group_attachment" "tg-attach" {
   target_id        = element(local.INSTANCE_IDS, count.index)
   port             = var.PORT
 }
+resource "aws_lb_listener" "private-listener" {
+  count             = var.IS_PRIVATE_LB ? 0 : 1
+  load_balancer_arn = data.terraform_remote_state.alb.outputs.PUBLIC_ALB_ARN
+  port              = "80"
+  protocol          = "HTTP"
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.tg.arn
+  }
+
+}
 
 resource "aws_lb_listener_rule" "private" {
   count        = var.IS_PRIVATE_LB ? 1 : 0

@@ -72,6 +72,7 @@ resource "aws_route53_record" "mongodb" {
   records = [aws_spot_instance_request.mongodb.private_ip]
 }
 
+
 resource "null_resource" "mongodb-setup" {
   provisioner "remote-exec" {
     connection {
@@ -87,3 +88,6 @@ resource "null_resource" "mongodb-setup" {
     ]
   }
 }
+
+
+

@@ -71,6 +71,13 @@ resource "aws_route53_record" "mongodb" {
   ttl     = "300"
   records = [aws_spot_instance_request.mongodb.private_ip]
 }
+
+output "mongodbspotinstanceid" {
+  value = aws_spot_instance_request.mongodb.private_ip
+ }
+output "sshuser" {
+  value = ""
+}
 resource "null_resource" "mongodb-setup" {
   provisioner "remote-exec" {
     connection {

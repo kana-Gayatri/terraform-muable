@@ -72,12 +72,6 @@ resource "aws_route53_record" "mongodb" {
   records = [aws_spot_instance_request.mongodb.private_ip]
 }
 
-output "mongodbspotinstanceid" {
-  value = aws_spot_instance_request.mongodb.private_ip
- }
-output "sshuser" {
-  value = ""
-}
 resource "null_resource" "mongodb-setup" {
   provisioner "remote-exec" {
     connection {
@@ -86,30 +80,18 @@ resource "null_resource" "mongodb-setup" {
       password = local.ssh_pass
     }
     inline = [
-      "sudo yum install python3-pip -y",
-      "sudo pip3 install pip --upgrade",
-      "sudo pip3 install ansible",
-      "ansible-pull -U  https://github.com/kana-Gayatri/ansible.git  roboshop-pull.yml -e ENV=${var.ENV} -e COMPONENT=mongodb"
+      "ansible-pull -U https://github.com/kana-Gayatri/ansible.git roboshop-pull.yml -e ENV=${var.ENV} -e COMPONENT=mongodb"
     ]
   }
 }
 
 
-#resource "null_resource" "mongodb-setup" {
-#  provisioner "remote-exec" {
-#    connection {
-#      host     = aws_spot_instance_request.mongodb.private_ip
-#      user     = local.ssh_user
-#      password = local.ssh_pass
-#    }
-#    inline = [
-#      "sudo yum install python3-pip -y",
-#      "sudo pip3 install pip --upgrade",
-#      "sudo pip3 install ansible",
-#      "ansible-pull -U https://github.com/kana-Gayatri/ansible.git roboshop-pull.yml -e ENV=${var.ENV} -e COMPONENT=mongodb"
-#    ]
-#  }
-#}
+
+
+
+
+
+
 
 
 

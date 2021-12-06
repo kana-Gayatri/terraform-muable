@@ -11,7 +11,7 @@ data "terraform_remote_state" "alb" {
   backend = "s3"
   config = {
     bucket = "services3bucket"
-    key    = "terraform-mutable/vpc/${var.ENV}/terraform.tfstate"
+    key    = "terraform-mutable/alb/${var.ENV}/terraform.tfstate"
     region = "us-east-1"
   }
 }

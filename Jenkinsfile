@@ -1,23 +1,28 @@
 pipeline {
-    agent any
-    stages {
-        stage('vpc') {
-            steps {
-                cd dev
-                make dev-apply
-            }
-        }
-        stage('DB') {
-            steps {
-                cd db
-                make dev-apply
-            }
-        }
-        stage('ALB') {
-            steps {
-                cd alb
-                make dev-apply
-            }
-        }
+  agent { label 'WORKSTATION' }
+
+  stages {
+
+    stage('VPC') {
+      sh '''
+        cd vpc
+        make dev-apply
+      '''
     }
+
+    stage('DB') {
+      sh '''
+        cd db
+        make dev-apply
+      '''
+    }
+
+    stage('ALB') {
+      sh '''
+        cd alb
+        make dev-apply
+      '''
+    }
+
+  }
 }

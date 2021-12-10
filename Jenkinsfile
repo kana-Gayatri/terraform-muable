@@ -1,13 +1,17 @@
 pipeline {
   agent { label 'WORKSTATION' }
 
+environment{
+    ACTION = "apply"
+    ENV =  "dev"
+}
   stages {
 
     stage('VPC') {
     steps{
       sh '''
         cd vpc
-        make dev-apply
+        make ${ENV}-${ACTION}
       '''
     }
 }
@@ -15,7 +19,7 @@ pipeline {
     steps{
       sh '''
         cd db
-        make dev-apply
+        make ${ENV}-${ACTION}
       '''
     }
     }
@@ -24,7 +28,7 @@ pipeline {
      steps{
       sh '''
         cd alb
-        make dev-apply
+        make ${ENV}-${ACTION}
       '''
     }
 

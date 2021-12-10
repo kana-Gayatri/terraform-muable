@@ -2,8 +2,9 @@ pipeline {
   agent { label 'WORKSTATION' }
 
   stages {
-   steps {
+
     stage('VPC') {
+    steps{
       sh '''
         cd vpc
         make dev-apply

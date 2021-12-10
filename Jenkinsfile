@@ -4,6 +4,11 @@ pipeline {
 environment{
     ACTION = "apply"
     ENV =  "dev"
+    SSH = credientials('Centos_SSH')
+}
+options{
+    ansicolor ("xterm")
+    disableConcurentBuilds()
 }
   stages {
 

@@ -30,16 +30,16 @@ options{
     {
     parallel {
     stage('DB') {
-          when {
-            beforeInput true
-            branch 'production'
-          }
-
-    input {
-           message "Should we continue?"
-           ok "Yes, we should."
-           submitter "admin"
-           }
+//           when {
+//             beforeInput true
+//             branch 'production'
+//           }
+//
+//     input {
+//            message "Should we continue?"
+//            ok "Yes, we should."
+//            submitter "admin"
+//            }
     steps{
       sh '''
         cd db

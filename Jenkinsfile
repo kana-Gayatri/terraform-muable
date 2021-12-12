@@ -26,7 +26,15 @@ options{
       '''
     }
 }
+    stage ('DB and ALB')
+    {
+    parallel {
     stage('DB') {
+          when {
+            beforeInput true
+            branch 'production'
+          }
+
     input {
            message "Should we continue?"
            ok "Yes, we should."
@@ -48,6 +56,10 @@ options{
       '''
     }
 
+  }
+  //stage for db and alb
+  }
+  //parallel
   }
 }
 }

@@ -7,12 +7,15 @@ environment{
     SSH = credientials('Centos_SSH')
 }
 
-parameters { choice(name: 'ENV', choices: ['dev', 'prod'], description: 'Choose Environment') }
-parameters { string(name: 'ACTION', defaultValue: 'apply', description: 'Choose an Action to start or destroy') }
-options{
-    ansicolor ("xterm")
-    disableConcurentBuilds()
-}
+parameters {
+    choice(name: 'ENV', choices: ['dev', 'prod'], description: 'Choose Environment')
+    string(name: 'ACTION', defaultValue: 'apply', description: 'Give an action to do on terraform')
+  }
+
+options {
+    ansiColor('xterm')
+    disableConcurrentBuilds()
+  }
 
 //triggers { pollSCM('H/2 * * * *') }
   stages {

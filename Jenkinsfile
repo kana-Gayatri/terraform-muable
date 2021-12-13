@@ -1,11 +1,11 @@
 pipeline {
   agent { label 'WORKSTATION' }
 
-environment{
+  environment {
     ACTION = "apply"
-    ENV =  "dev"
-    SSH = credientials('Centos_SSH')
-}
+    ENV = "dev"
+    SSH = credentials('CENTOS_SSH')
+  }
 
 parameters {
     choice(name: 'ENV', choices: ['dev', 'prod'], description: 'Choose Environment')

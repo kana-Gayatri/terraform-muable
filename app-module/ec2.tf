@@ -36,3 +36,10 @@ resource "aws_ec2_tag" "ec2-monitor-tag" {
   key         = "monitor"
   value       = "yes"
 }
+
+resource "aws_ec2_tag" "ec2-env-tag" {
+  count       = length(local.INSTANCE_IDS)
+  resource_id = element(local.INSTANCE_IDS, count.index)
+  key         = "environment"
+  value       = var.ENv
+}

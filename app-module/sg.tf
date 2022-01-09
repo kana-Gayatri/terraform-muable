@@ -26,17 +26,17 @@ resource "aws_security_group" "sg" {
       security_groups  = []
       self             = false
     },
-       {
-          description      = "PROMETHEUS"
-          from_port        = 9100
-          to_port          = 9100
-          protocol         = "tcp"
-          cidr_blocks      = local.ALL_CIDR
-          ipv6_cidr_blocks = []
-          prefix_list_ids  = []
-          security_groups  = []
-          self             = false
-        }
+    {
+    description      = "PROMETHEUS"
+    from_port        = 9100
+    to_port          = 9100
+    protocol         = "tcp"
+    cidr_blocks      = local.ALL_CIDR
+    ipv6_cidr_blocks = []
+    prefix_list_ids  = []
+    security_groups  = []
+    self             = false
+    }
   ]
 
   egress = [

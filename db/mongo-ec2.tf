@@ -83,15 +83,13 @@ resource "null_resource" "mongodb-setup" {
       "ansible-pull -U https://github.com/kana-Gayatri/ansible.git roboshop-pull.yml roboshop-pull.yml -e ENV=${var.ENV} -e COMPONENT=mongodb -e APP_VERSION="
     ]
   }
-
 }
 
 
 
 
 
-
-
+//"ansible-pull -U https://github.com/kana-Gayatri/ansible.git roboshop-pull.yml roboshop-pull.yml -e ENV=${var.ENV} -e COMPONENT=mongodb -e APP_VERSION="
 
 
 

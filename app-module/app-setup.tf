@@ -12,7 +12,6 @@ resource "null_resource" "app-deploy" {
 
     inline = [
       "ansible-pull -U https://github.com/kana-Gayatri/ansible.git roboshop-pull.yml -e ENV=${var.ENV} -e COMPONENT=${var.COMPONENT} "
-
              ]
   }
 
